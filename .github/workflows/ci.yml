@@ -1,19 +1,15 @@
 
-name: CI
+name: CommanderD
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
 
 jobs:
-  build:
+  analyze:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: YOUR_USERNAME/commanderd-action@v2
+        with:
+          backend_url: https://commanderd.onrender.com/api/analyze
 
-      - name: Simulate build
-        run: |
-          echo "Running build..."
-          exit 1
