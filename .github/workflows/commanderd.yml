@@ -1,0 +1,17 @@
+
+name: CommanderD
+
+on:
+  workflow_run:
+    workflows: ["CI"]
+    types: [completed]
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+
+    steps:
+      - uses: ADIBAINS/commanderd-action@v2
+        with:
+          backend_url: https://commanderd.onrender.com/api/analyze
