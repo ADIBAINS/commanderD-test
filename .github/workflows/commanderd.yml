@@ -2,16 +2,19 @@
 name: CommanderD
 
 on:
-  workflow_run:
-    workflows: ["CI"]
-    types: [completed]
+  pull_request:
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
 
 jobs:
   analyze:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
 
     steps:
-      - uses: ADIBAINS/commanderd-action@main
+      - uses: ADIBAINS/commander-action@main
         with:
           backend_url: https://commanderd.onrender.com/api/analyze
+
