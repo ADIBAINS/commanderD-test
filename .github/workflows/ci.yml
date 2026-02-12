@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: ADIBAINS/commander-action@main
         with:
-          backend_url: https://commanderd.onrender.com/api/analyze
+          backend_url: https://nonesthetically-latticed-nicolasa.ngrok-free.dev/api/analyze
           token: ${{ secrets.GITHUB_TOKEN }}
 
 
