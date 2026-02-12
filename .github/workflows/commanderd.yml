@@ -13,8 +13,10 @@ jobs:
   analyze:
     runs-on: ubuntu-latest
 
-    steps:
-      - uses: ADIBAINS/commander-action@main
-        with:
-          backend_url: https://commanderd.onrender.com/api/analyze
+    
+steps:
+  - uses: ADIBAINS/commander-action@main
+    with:
+      backend_url: https://commanderd.onrender.com/api/analyze
+      token: ${{ secrets.GITHUB_TOKEN }}
 
