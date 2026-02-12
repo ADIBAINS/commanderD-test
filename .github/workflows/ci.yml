@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: ADIBAINS/commander-action@v2
+      - uses: ADIBAINS/commander-action@main
         with:
           backend_url: https://commanderd.onrender.com/api/analyze
 

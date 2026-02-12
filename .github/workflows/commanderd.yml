@@ -12,6 +12,6 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'failure' }}
 
     steps:
-      - uses: ADIBAINS/commanderd-action@v2
+      - uses: ADIBAINS/commanderd-action@main
         with:
           backend_url: https://commanderd.onrender.com/api/analyze
