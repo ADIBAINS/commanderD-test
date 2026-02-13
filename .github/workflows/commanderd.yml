@@ -2,16 +2,21 @@
 name: CommanderD
 
 on:
-  workflow_run:
-    workflows: ["CI"]
-    types: [completed]
+  pull_request:
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
 
 jobs:
   analyze:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
 
-    steps:
-      - uses: ADIBAINS/commander-action@v2
-        with:
-          backend_url: https://commanderd.onrender.com/api/analyze
+    
+steps:
+  - uses: ADIBAINS/commander-action@main
+    with:
+      backend_url: https://nonesthetically-latticed-nicolasa.ngrok-free.dev/api/analyze
+      token: ${{ secrets.GITHUB_TOKEN }}
+

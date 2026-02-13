@@ -1,19 +1,22 @@
 
-name: CI
+name: CommanderD
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
 
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
 jobs:
-  build:
+  analyze:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: ADIBAINS/commander-action@main
+        with:
+          backend_url: https://nonesthetically-latticed-nicolasa.ngrok-free.dev/api/analyze
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Simulate build
-        run: |
-          echo "Running build..."
-          exit 1
+
